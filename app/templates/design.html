@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% set currentPage = "designs" %}
+{% block body %}
+<h1>Designs</h2>
+
+{% for design in designs %}
+<h2>{{design.design_nm}}</h2>
+    <table class="table table-striped">
+    <tr>
+        <th>Bow Type</th>
+        <th>Description</th>
+        <th>Amount Needed</th>
+        <th>Options</th>
+    </tr>
+    {% for bow_component in design.inventory_needed %}
+    <tr>
+        <td>{{bow_component.bow_type}}</td>
+        <td>{{bow_component.inventory.description}}</td>
+        <td>{{bow_component.amountNeeded}}</td>
+        <td><a href="/delete/bow_component/{{bow_component.b_id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+    </tr>
+    {% endfor %}
+    </table>
+{% endfor %}
+
+<form method="post">
+    <h3> New Bow Component</h3>
+    {{design_form.csrf_token}}
+    <label for="bow_type">Bow Type</label>
+        {{design_form.bow_type(class="form-control")}}
+    <label for="design_name">Design Name</label>
+        {{design_form.design_name(class="form-control")}}
+    <label for="inventory">Inventory Piece</label>
+        {{design_form.inventory(class="form-control")}}
+    <label for="amountNeeded">Amount Needed</label>
+        {{design_form.amountNeeded(class="form-control")}}
+    <input type="submit" class="btn btn-success" value="Submit"/>
+</form>
+
+{% endblock %}

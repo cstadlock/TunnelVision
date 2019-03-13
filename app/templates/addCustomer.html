@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% set currentPage = "addCustomer" %}
+
+{% block body %}
+<h2>Add Customer</h2>
+</br>
+<form method='post'>
+
+<label>
+    First Name:<br>
+    <input type="text" name="firstname">
+</label></br>
+
+<label>
+    Last Name:<br> 
+    <input type="text" name="lastname">
+</label></br>
+
+<label>
+    Email:<br> 
+    <input type="text" name="email">
+</label></br>
+
+<label>
+    Phone Number:<br>
+    <input type="text" name="phonenumber">
+</label></br>
+
+<label>
+    Address:<br> 
+    <input type="text" name="address">
+</label></br>
+
+<input type="submit" value="Add Customer" onclick="">
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% set currentPage = "orders" %}
+{% block body %}
+<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+ <caption style="font-weight:bold">Ordered items </caption>
+ <thead>
+ <tr>
+  <th>Order #</th>
+  <th>Customers</th>
+  <th>Status</th>
+  <th>Tunnels</th>
+  <th>Price</th>
+  <th>Date</th>
+  <th>Options</th>
+ </tr>
+ </thead>
+ <tbody>
+ 
+ {% for order in orders %}
+ <tr>
+  <td><a href="/order/{{order.o_id}}">{{order.o_id}}</a></td>
+  <td>{{order.customer.first_name}} {{order.customer.last_name}}</td>
+  <td>{{order.status.status}}</td>
+  <td>{{order.tunnels|length}}</td>
+  <td>{{order.price}}</td>
+  <td>{{order.created_date}}</td>
+  <td><a href="/editOrder/{{order.o_id}}"><span class="glyphicon glyphicon-pencil"></span></a> <a href="/deleteOrder/{{order.o_id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+ </tr>
+ {% endfor %}
+ </tbody>
+</table>
+<a href="/addOrder"><span class="glyphicon glyphicon-plus pull-right"></span></a>
+{% endblock %}

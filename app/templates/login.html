@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% set currentPage = "login" %}
+{# jinja comment #} 
+<!--html comment-->
+{% block body %}
+
+<form method="post">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Username</label>
+    {{form.username(class="form-control")}}
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">password</label>
+    {{form.password(class="form-control")}}
+  </div>
+  {{form.csrf_token }}
+  <input type="submit" value="Submit">
+</form>
+
+{% endblock %}

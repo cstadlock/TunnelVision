@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% set currentPage = "editInventory" %}
+
+{% block body %}
+<h2>Edit Inventory</h2>
+</br>
+<div class="col-md-offset-3">
+<label for="description">Description:</label>    
+<p id="description">{{inventory.size}} {{inventory.size_unit}} {{inventory.description}}</p>
+</div>
+<form id = "editInvForm" method='post'>
+<div class="form-group col-md-6 col-md-offset-3">
+<label for="cost">Cost: </label>
+     <div class="input-group">
+     <input type = "number" class="form-control" name = "cost" value = "{{inventory.cost}}" aria-describedby="cost_per">
+  <span class="input-group-addon" id="cost_per">per {{inventory.cost_per}}</span>
+</div>
+<label for="quantity">Quantity:</label>
+    <input type = "number" class="form-control" id="quantity" value = {{inventory.quantity}} name = "quantity">
+
+<label>Damaged:</label>
+    <input type = "number" class="form-control" value = {{inventory.damaged}} name = "damaged">
+
+
+  </div>
+  <input type = "submit" class="btn btn-warning col-md-offset-3" value = "Update Item">
+</form>
+
+{% endblock %}

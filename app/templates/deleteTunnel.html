@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% set currentPage = "inventory_table" %}
+{% block body %}
+
+<h2>Are you sure you want to delete this tunnel from the order?</h2>
+
+<form id = "deleteTun" method = "post"> <input type = "submit" value = "Confirm"> </form>
+
+<a href="/editOrder/{{o_id}}"><button type="button">Cancel</button></a>
+{% endblock %}

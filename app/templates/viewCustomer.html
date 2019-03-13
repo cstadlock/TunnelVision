@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% set currentPage = "/viewCustomer/{{customerAttribute.c_id}}" %}
+
+{% block body %}
+<h2>View Customer:</h2>
+</br>
+<form method='post'>
+
+<label>
+    First Name: 
+    <td>{{customerAttribute.first_name}}</td>
+</label></br>
+
+<label>
+    Last Name: 
+    <td>{{customerAttribute.last_name}}</td>
+</label></br>
+
+<label>
+    E-Mail: 
+    <td>{{customerAttribute.email}}</td>
+</label></br>
+
+<label>
+    Phone Number: 
+    <td>{{customerAttribute.phone_number}}</td>
+</label></br>
+
+<label>
+    Address: 
+    <td>{{customerAttribute.address}}</td>
+</label></br>
+
+<input type="button" value="Return To Customer Table" onclick="redirect(url_for("customers"))">
+</form>
+{% endblock %}

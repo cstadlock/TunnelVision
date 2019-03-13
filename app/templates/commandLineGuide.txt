@@ -1,0 +1,19 @@
+Status:
+git status
+
+Add:
+git add <filepath>
+
+Commit:
+git commit -m "First commit"
+
+Push: 
+git push origin master
+
+Pull:
+git pull origin master
+
+To Get To Our WebPage:
+mysql-ctl start
+source setup.sh
+PORT=8081 python app.py

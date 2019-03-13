@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% set currentPage = "viewOrder" %}
+
+{% block body %}
+<div class = "col-sm-8 col-sm-offset-2">
+    <h2>Order Details</h2>
+   <dl class="dl-horizontal">
+     <dt>Order Info</dt>
+       <dd>Name: <a href="/customer/{{order.customer.c_id}}">{{order.customer.first_name}} {{order.customer.last_name}}</a></dd>
+       <dd>Order Number: {{order.o_id}}</dd>
+       <dd>Date Created: {{order.create_date}}</dd>
+       <dd>Order Status: {{order.status.status}}</dd>
+       <dd>Order Price: ${{order.price}}</dd>
+       <dd>Order Notes: {{order.notes}}</dd>
+       <dd><dt>Order Tunnels:</dt> 
+           {% for tunnel in order.tunnels %}
+               <dd>{{tunnel.design_nm.design_nm}}</dd>
+           {% endfor %}
+       </dd>
+    </dl>
+</div>
+
+{% endblock %}

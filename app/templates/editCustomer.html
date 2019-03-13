@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% set currentPage = "editCustomer" %}
+
+{% block body %}
+<h2>Edit Customer</h2>
+</br>
+<form method='post'>
+
+<label>
+    First Name:<br>
+    <input type="text" value = "{{customer.first_name}}" name="firstname">
+</label></br>
+
+<label>
+    Last Name:<br> 
+    <input type="text" value = "{{customer.last_name}}" name="lastname">
+</label></br>
+
+<label>
+    Email:<br> 
+    <input type="text" value = "{{customer.email}}" name="email">
+</label></br>
+
+<label>
+    Phone Number:<br>
+    <input type="text" value = "{{customer.phone_number}}" name="phonenumber">
+</label></br>
+
+<label>
+    Address:<br> 
+    <input type="text" value = "{{customer.address}}" name="address">
+</label></br>
+
+<input type="submit" value="Save Changes">
+</form>
+{% endblock %}

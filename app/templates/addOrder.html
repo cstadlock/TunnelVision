@@ -1,0 +1,48 @@
+<!--The below line of code is jinja which is a template engine for python-->
+{% extends "base.html" %} 
+{% set currentPage = "addOrder" %}
+
+{% block body %}
+<h2 class="col-md-offset-3">Add new Order</h2>
+</br>
+
+<form id = 'ordForm' method='post'>
+
+<div class="form-group col-md-6 col-md-offset-3">
+  <!--customer-->
+   <label for="customer">Customer:</label>
+    <select name = "customer" id="customer" class="form-control">
+      {% for customer in customers %}
+          <option value="{{ customer.c_id }}">{{ customer.first_name }}</option>
+      {% endfor %}
+    </select>
+    
+    <!--number of tunnels-->
+    <label for="num_of_tunnels">Tunnels Needed:</label>
+
+    <input type="number" name="num_of_tuns" id="num_of_tuns" min="1" class="form-control">
+    
+    <!--status-->
+      <label for="status">Status:</label>
+      
+    <select name = "status" id="status" class="form-control">
+      {% for status in statuses %}
+          <option value="{{ status.s_id }}">{{ status.status }}</option>
+      {% endfor %}
+    </select>
+    
+    <!--price-->
+    <label for="price">Price</label>
+    <input type = "number" name = "Price"  id="price" class="form-control">
+  <!--notes-->
+  <label for="notes">Notes:</label>
+  <textarea class="form-control" rows="5" id="notes" name="ordNotes"></textarea>
+  <!--submit-->
+  <input type = "submit" value = "Order Tunnels" class="btn btn-success">
+
+</div>
+  
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+<!--The below line of code is jinja which is a template engine for python-->
+{% extends "base.html" %} 
+{% set currentPage = "add/tunnels" %}
+{% block body %}
+<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+<h2>Add {{num_tunnels}} Tunnels to Order</h2>
+</br>
+<form id = 'tunForm' method='post'>
+      <div class="form-group">
+  {% for tunnel in range(num_tunnels) %}
+    <h3>Tunnel {{tunnel + 1}}</h3>
+      <label for="design_{{tunnel}}"> Tunnel Design </label>
+        <select name = "design_{{tunnel}}" id="design_{{tunnel}}" class="form-control">    <!--Naming works-->
+          {% for design in designs %}
+            <option value="{{ design.d_id }}">{{ design.design_nm }}</option>
+          {% endfor %}
+        </select>
+      
+      <label for=num_of_bows_{{tunnel}}> Number of Interior Bows </label> <!-- Number of interior bows, not counting front and back-->
+        <input type="number"  class="form-control" min="0" name = "num_of_bows_{{tunnel}}" id="num_of_bows_{{tunnel}}">
+  {% endfor %}
+  </br><input type = "submit" value = "Submit" class="btn btn-success">
+  </div>
+</form>
+
+{% endblock %}

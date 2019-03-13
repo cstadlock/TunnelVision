@@ -1,0 +1,15 @@
+th.sorting::after{
+    display: none;
+}
+
+th.sorting_asc::after{
+    display: none;
+}
+
+th.sorting_desc::after{
+    display: none;
+}
+
+html, body {
+background-color: #fdfdfd;
+}

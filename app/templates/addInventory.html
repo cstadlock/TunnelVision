@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% set currentPage = "addInventory" %}
+
+{% block body %}
+<h2>Add Inventory</h2>
+</br>
+<form method='post'>
+ <div class="form-group col-md-6 col-md-offset-3">
+<label for="inventory_description">Description:</label>
+    <input class="form-control" 
+           type = "text" 
+           id="inventory_description" 
+           name = "add_inventory_description"
+           required>
+
+<label for="inventory_size">Size:</label>
+    <input class="form-control" 
+    type = "number" 
+    name = "add_inventory_Size"
+    required>
+
+<label for="inventory_cost">Cost:</label>
+    <input class="form-control" 
+           type = "number" 
+           min="0" 
+           id="inventory_cost" 
+           name = "add_inventory_cost"
+           required>
+
+<label for="size_unit">Size_Unit:</label>
+    <input class="form-control" 
+           type = "text" 
+           id="size_unit" 
+           name = "add_inventory_size_unit"
+           required>
+
+<label for="cost_per">Cost_Per:</label>
+    <input class="form-control" 
+           type = "text" 
+           id="cost_per" 
+           name = "add_inventory_cost_per"
+           required>
+
+<label for="quantity">Quantity:</label>
+    <input class="form-control" 
+           type = "number" 
+           id="quantity" 
+           name = "add_inventory_quantity"
+           required>
+
+  <input class="btn btn-success" type = "submit" value = "Add This To Inventory" onclick = "">
+  </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% set currentPage = "inventory_table" %}
+{# jinja comment #} 
+<!--html comment-->
+{% block body %}
+
+<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+ <caption style="font-weight:bold">Inventory</caption>
+ <thead>
+        <tr>
+            <th>Description</th>
+            <th>Size</th>
+            <th>Cost</th>
+            <th>Per</th>
+            <th>Quantity</th>
+            <th>Options</th>
+        </tr>
+</thead>
+<tbody>
+    {% for item in inventory %}
+        <tr>
+            <td>{{item.description}}</td>
+            <td>{{item.size}}{{item.size_unit}}</td>
+            <td>{{item.cost}}</td>
+            <td>{{item.cost_per}}</td>
+            <td>{{item.quantity}}</td>
+            <td><a href="/editInventory/{{item.i_id}}"><span class="glyphicon glyphicon-pencil"></span></a> <a href="/delete/inventory/{{item.i_id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+        </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="/addInventory"><span class="glyphicon glyphicon-plus pull-right"></span></a> 
+{% endblock %}
